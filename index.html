@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24 點計算器</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="24 點計算器">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Card Arithmetic Solver</p>
+            <h1>24 點計算器</h1>
+          </div>
+          <div class="target-control">
+            <label for="target">目標</label>
+            <input id="target" type="number" inputmode="decimal" step="any" value="24" />
+          </div>
+        </header>
+
+        <section class="controls" aria-label="輸入區">
+          <div class="card-inputs" id="card-inputs">
+            <label class="card-field">
+              <span>牌 1</span>
+              <input type="text" inputmode="decimal" value="A" aria-label="第一張牌" />
+            </label>
+            <label class="card-field">
+              <span>牌 2</span>
+              <input type="text" inputmode="decimal" value="5" aria-label="第二張牌" />
+            </label>
+            <label class="card-field">
+              <span>牌 3</span>
+              <input type="text" inputmode="decimal" value="5" aria-label="第三張牌" />
+            </label>
+            <label class="card-field">
+              <span>牌 4</span>
+              <input type="text" inputmode="decimal" value="5" aria-label="第四張牌" />
+            </label>
+          </div>
+
+          <div class="actions" aria-label="工具列">
+            <button id="solve-button" type="button">計算</button>
+            <button id="draw-button" type="button" class="secondary">抽四張</button>
+            <button id="clear-button" type="button" class="secondary">清空</button>
+          </div>
+        </section>
+
+        <section class="options" aria-label="選項">
+          <label>
+            <input id="allow-concat" type="checkbox" />
+            允許數字串接
+          </label>
+          <label>
+            <input id="show-all" type="checkbox" checked />
+            顯示所有解
+          </label>
+        </section>
+
+        <section class="results" aria-live="polite">
+          <div class="result-summary">
+            <h2 id="summary-title">等待計算</h2>
+            <p id="summary-copy">輸入四張牌或整數，目標值可改成任何整數。</p>
+          </div>
+          <div id="practice-actions" class="practice-actions" hidden>
+            <button id="count-button" type="button" class="secondary">看幾種解法</button>
+            <button id="reveal-button" type="button">揭露答案</button>
+          </div>
+          <ol id="solutions" class="solution-list"></ol>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
